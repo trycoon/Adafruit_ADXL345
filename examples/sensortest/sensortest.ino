@@ -117,11 +117,13 @@ void setup(void)
 
   /* Initialise the sensor */
   if(!accel.begin())
+  /* if(!accel.begin(ADXL345_DEFAULT_ADDRESS, 5, 6)) // for ESP8266/NodeMCU, first parameter is the I2C-address to the sensor, then SDA-pin and SCL-pin */
   {
     /* There was a problem detecting the ADXL345 ... check your connections */
     Serial.println("Ooops, no ADXL345 detected ... Check your wiring!");
     while(1);
   }
+
 
   /* Set the range to whatever is appropriate for your project */
   accel.setRange(ADXL345_RANGE_16_G);

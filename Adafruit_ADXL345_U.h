@@ -111,7 +111,7 @@ class Adafruit_ADXL345_Unified : public Adafruit_Sensor {
   Adafruit_ADXL345_Unified(int32_t sensorID = -1);
   Adafruit_ADXL345_Unified(uint8_t clock, uint8_t miso, uint8_t mosi, uint8_t cs, int32_t sensorID = -1);
 
-  bool       begin(uint8_t addr = ADXL345_DEFAULT_ADDRESS);
+  bool       begin(uint8_t addr = ADXL345_DEFAULT_ADDRESS, uint8_t sda = SDA, uint8_t scl = SCL);
   void       setRange(range_t range);
   range_t    getRange(void);
   void       setDataRate(dataRate_t dataRate);
