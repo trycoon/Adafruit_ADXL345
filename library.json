@@ -1,0 +1,23 @@
+{
+  "name": "Adafruit ADXL345",
+  "keywords": "accelerometer, sensor",
+  "description": "Unified driver for the ADXL345 Accelerometer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trycoon/Adafruit_ADXL345"
+  },
+  "authors":
+  [
+    {
+      "name": "Adafruit Industries",
+      "email": "info@adafruit.com",
+      "url": "https://www.adafruit.com/contact_us"
+    },
+    {
+      "name": "trycoon"
+    }
+  ],
+  "frameworks": "arduino",
+  "platforms": "*",
+  "version": "2.0.0"
+}
