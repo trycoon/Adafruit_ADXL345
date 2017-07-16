@@ -1,10 +1,17 @@
 {
-  "name": "Adafruit ADXL345",
-  "keywords": "accelerometer, sensor",
-  "description": "Unified driver for the ADXL345 Accelerometer",
-  "repository": {
+  "name": "Adafruit ADXL345 fork",
+  "version": "2.0.0",
+  "keywords": "sensor, accelerometer, i2c, spi, unified",
+  "description": "Fork including the latest patches for the Adafruit ADXL345 Accelerometer library",
+  "repository":
+  {
     "type": "git",
     "url": "https://github.com/trycoon/Adafruit_ADXL345"
+  },
+  "dependencies":
+  {
+    "name": "Adafruit Unified Sensor",
+    "frameworks": "arduino"
   },
   "authors":
   [
@@ -14,10 +21,9 @@
       "url": "https://www.adafruit.com/contact_us"
     },
     {
-      "name": "trycoon"
+      "name": "Henrik Östman"
     }
   ],
   "frameworks": "arduino",
-  "platforms": "*",
-  "version": "2.0.0"
+  "platforms": "atmelavr,espressif8266"
 }
