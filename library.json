@@ -1,6 +1,6 @@
 {
   "name": "Adafruit ADXL345 fork",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "keywords": "sensor, accelerometer, i2c, spi, unified",
   "description": "Fork including the latest patches for the Adafruit ADXL345 Accelerometer library",
   "repository":

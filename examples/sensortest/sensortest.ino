@@ -149,6 +149,8 @@ void loop(void)
   /* Display the results (acceleration is measured in m/s^2) */
   Serial.print("X: "); Serial.print(event.acceleration.x); Serial.print("  ");
   Serial.print("Y: "); Serial.print(event.acceleration.y); Serial.print("  ");
-  Serial.print("Z: "); Serial.print(event.acceleration.z); Serial.print("  ");Serial.println("m/s^2 ");
+  Serial.print("Z: "); Serial.print(event.acceleration.z); Serial.print("  ");Serial.print("m/s^2, ");
+  Serial.print("Pitch: "); Serial.print(event.acceleration.pitch);Serial.print(" degrees, ");
+  Serial.print("Roll: "); Serial.print(event.acceleration.roll);Serial.println(" degrees.");
   delay(500);
 }
