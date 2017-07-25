@@ -315,8 +315,8 @@ bool Adafruit_ADXL345_Unified::getEvent(sensors_event_t *event) {
   event->acceleration.x = getX() * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
   event->acceleration.y = getY() * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
   event->acceleration.z = getZ() * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
-  event->acceleration.roll = (atan2(y, sqrt(x * x + z * z)) * 180.0) / PI)
-  event->acceleration.pitch = (atan2(x, sqrt(y * y + z * z)) * 180.0) / PI);
+  event->acceleration.roll = (atan2(event->acceleration.y, sqrt(event->acceleration.x * event->acceleration.x + event->acceleration.z * event->acceleration.z)) * 180.0) / PI)
+  event->acceleration.pitch = (atan2(event->acceleration.x, sqrt(event->acceleration.y * event->acceleration.y + event->acceleration.z * event->acceleration.z)) * 180.0) / PI);
 
   return true;
 }
