@@ -308,16 +308,21 @@ bool Adafruit_ADXL345_Unified::getEvent(sensors_event_t *event) {
   /* Clear the event */
   memset(event, 0, sizeof(sensors_event_t));
 
+  float x = getX() * ADXL345_MG2G_MULTIPLIER;
+  float y = getY() * ADXL345_MG2G_MULTIPLIER;
+  float z = getZ() * ADXL345_MG2G_MULTIPLIER;
+  
   event->version   = sizeof(sensors_event_t);
   event->sensor_id = _sensorID;
   event->type      = SENSOR_TYPE_ACCELEROMETER;
   event->timestamp = millis();
-  event->acceleration.x = getX() * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
-  event->acceleration.y = getY() * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
-  event->acceleration.z = getZ() * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
-  event->acceleration.roll = (atan2(event->acceleration.y, sqrt(event->acceleration.x * event->acceleration.x + event->acceleration.z * event->acceleration.z)) * 180.0) / PI)
-  event->acceleration.pitch = (atan2(event->acceleration.x, sqrt(event->acceleration.y * event->acceleration.y + event->acceleration.z * event->acceleration.z)) * 180.0) / PI);
-
+  event->acceleration.x = x * SENSORS_GRAVITY_STANDARD;
+  event->acceleration.y = y * SENSORS_GRAVITY_STANDARD;
+  event->acceleration.z = z * SENSORS_GRAVITY_STANDARD;
+  event->acceleration.roll = atan2(y, sqrt(x * x + z * z)) * (180.0 / PI);
+  event->acceleration.pitch = atan2(x, sqrt(y * y + z * z)) * (180.0 / PI);
+  event->acceleration.heading = 0;
+  
   return true;
 }
 
